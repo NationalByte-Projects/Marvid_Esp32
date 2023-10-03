@@ -1,3 +1,8 @@
+/*
+Nota: Before running this code, check that the GPS of the SIM7600G module is activated automatically. 
+You can check it with the following code:
+    https://github.com/MauricioOrtega10/SIm7600G_auto_GPS.git
+*/
 #include <Arduino.h>
 #include <Preferences.h>
 #include <BluetoothSerial.h>
