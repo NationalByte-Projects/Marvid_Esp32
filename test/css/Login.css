@@ -1,0 +1,228 @@
+:root{
+  --primario: #0e475fe5;
+  --secundario: #ee9208;
+  --Size_Prin: 5rem;
+  --Size_Sec: 3rem;
+  --Size_Comm: 1.5rem;
+  --Fuente_Prin: 'Share Tech', sans-serif;
+  --Fuente_Sec: Arial;
+
+}
+html{
+  font-size: 62.5%;
+}
+html{
+  font-size: 16px;
+  font-family: var(--Fuente_Sec);
+  background-image: linear-gradient(to top, #BFc9e6b7 0%, #FFFFFF 80%);
+}
+
+
+
+/*MENU*/
+.Menu {        
+  display: flex;    
+  flex-direction: column;  
+  justify-content: center;
+  
+}
+
+
+.Link {
+  padding-top: 2.8rem;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: black;
+}
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+
+.Link:hover{
+  background-color: var(--secundario);
+  color: black;
+}
+.Nav_BG{
+  /*background-color: var(--primario); */
+  justify-content: space-evenly;    
+}
+
+.Contenedor{
+  max-width: 120rem;
+  /*
+  margin-top: 0; /*Separacion hacia arriba
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto; */
+  margin: 0 auto 0 auto; /*Es equivalente a lo de arriba*/  
+  text-align: -webkit-center;
+}
+/*Subtitulo*/
+
+.Subtitulo{
+  font-size: var(--Size_Sec);
+  text-align: center;
+  background-image: url(../Img/Montacargas.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 32rem;    
+  position: relative;
+
+
+}
+.Subtitulo-contenido{
+  color: white;
+  font-weight: 1000;
+  position: absolute;
+  background-color: rgba(0, 0,0, .7);
+  width: 100%;
+  height: 100%;
+  /* Codigo para centrar*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+.Icono-camion{
+  display: flex;
+  align-items:center
+}
+*/
+.Sombra{
+  background-color: white;
+  -webkit-box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.28);
+  -moz-box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.28);
+  box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.28);
+  border-radius: 2rem;    
+}
+.Subtitulo-contenido p {
+  font-size: var(--Size_Comm);
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+.Subtitulo-contenido h2 {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
+.Servicios{
+
+  text-align: center;
+  font-size: var(--Size_Sec);
+  font-family: var(--Fuente_Prin);
+  font-weight: 900;
+  padding-top: 1rem;
+}
+
+.Descripciones{
+  
+  padding-top: 1rem;
+  font-size: var(--Size_Comm);
+  display: grid;
+  grid-template-columns: repeat(2,2fr);
+  column-gap: 0rem;
+  row-gap: 2rem;
+  justify-content: space-evenly;
+}
+
+.Icono{
+  height: 15rem;
+  width: 15rem;
+  border-radius: 50%;
+  background-color: yellow;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+.Secciones{
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.Contacto{
+  text-align: center;
+  background-color: rgb(161, 161, 161);
+  width: min(60rem, 100%);
+  margin: 0 auto 1rem auto;
+  border-radius: 1rem;  
+
+}
+.Contacto h2{
+  text-transform: uppercase;
+  padding-top: 1rem;
+  font-weight: bolder;
+}
+.Contacto fieldset{
+  border: none;
+}
+.Contacto legend {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.Campo label{
+  text-align: left;
+  padding-left: 1.5rem;
+}
+.Campo{
+  margin-bottom: .5rem;
+}
+.Campo-holder label{
+  font-weight: bolder;
+  margin-bottom: 5.rem;
+  display: block; /*Para que tome todo el espacio y baje el imput*/
+
+}
+.Input-text{
+  width: 90%;
+  border: none;
+  padding: 1.5rem;
+  border-radius: .5rem;   
+}
+
+.Boton{
+  background-color: var(--secundario);
+  color: white;
+  padding: 1rem 3rem;
+  margin-top: 3rem;
+  font-size: 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5rem;
+  width: 80%;
+  text-align: center;
+  border: none;
+}
+.Boton:hover{
+  cursor: pointer;
+}
+/*PIE DE PAGINA*/
+footer{
+  text-align: center;
+}
+
+
+@media (min-width: 680px) {
+  .Menu{
+      flex-direction: row;
+      justify-content: space-between; 
+
+  }
+  .Sombra{
+      margin-left: 18rem;
+      margin-right: 18rem;
+  }
+}
+
+

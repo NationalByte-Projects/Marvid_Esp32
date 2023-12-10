@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<title>Ajax Without Refresh</title>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+ <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+</head>
+<style>
+table, th, td {
+ border: 1px solid black;
+ border-collapse: collapse;
+}
+</style>
+<body>
+<div id="mapid" style=" height: 400px;"></div>
+
+<button class="refresher">Refresh table</button>
+<table id="Tabla_Datos">
+<thead>
+<tr>
+        <th>Nombre beacon</th> 
+        <th>Temperatura</th> 
+        <th>Velocidad</th> 
+        <th>Tiempo de uso</th> 
+        <th>Horas faltantes</th> 
+</tr>
+</thead>
+<tbody>
+<tr>
+        <td>No hay datos</th> 
+        <th>No hay datos</th> 
+        <th>No hay datos</th> 
+        <th>No hay datos</th> 
+        <th>No hay datos</th> 
+</tr>
+</tbody>
+</table>
+
+<script type="text/javascript">
+$(document).ready(function () {
+setInterval(function(){ $.ajax({
+url: 'Test.php',
+method: "GET",
+dataType: 'json',
+success: function(response) {
+   $('#Tabla_Datos').html(response);
+}
+}); }, 3000);
+
+});
+
+</script>
+</body>
+</html>

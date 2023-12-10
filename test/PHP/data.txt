@@ -1,0 +1,26 @@
+CREATE TABLE Usuarios (
+    UsuarioID varchar(50) PRIMARY KEY,
+    Passw varchar(60) not null,
+    Correo varchar(60) not null
+);
+
+CREATE TABLE DatosAct (
+    UsuarioID varchar(50) not null,
+    BeaconID varchar(50) not null,
+    Temp varchar(8) not null,
+    Encendido varchar(6) not null,
+    Velocidad varchar(8) not null,
+    Latitud varchar(25) not null,
+    Longitud varchar(50) not null,
+    Fecha varchar(30) not null
+);
+
+CREATE TABLE Historial (
+    UsuarioID varchar(50) not null,
+    BeaconID varchar(50) not null,
+    Alerta varchar(50) not null.
+    Fecha varchar(30) not null
+);
+
+
+INSERT INTO `DatosAct`(`UsuarioID`, `BeaconID`, `Temp`, `Encendido`, `Velocidad`, `Latitud`, `Longitud`, `Fecha`) VALUES ('Marvid','Marvid2','30.5','200','15.8','21.152169921277356', '-101.65683825609163','2021-09-28T23:04:46Z')

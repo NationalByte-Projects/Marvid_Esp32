@@ -6,11 +6,12 @@ You can check it with the following code:
 #include <Arduino.h>
 #include <Preferences.h>
 #include <BluetoothSerial.h>
-#include "ESP32Time.h"
+#include "ESP32Time.h" 
+
 #include "max6675.h"
 
 // Your GPRS credentials (Telcel)
-const char apn[]      = "internet.itelcel.com";
+const char apn[]      = "Broadband";
 const char gprs_user[] = "webgprs";
 const char gprs_pass[] = "webgprs2002";
 

@@ -1,0 +1,88 @@
+<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+	<style>
+          #map { 
+    width: 100%;
+    height: 580px;
+    box-shadow: 5px 5px 5px #888;
+ }
+	</style>
+</head>
+	<body>
+		<div id="map">
+		</div>
+        <script>
+            var Marcadores =[];
+            var map = L.map('map').
+           setView([24.25824183589114, -102.64994214116754],
+           15);
+            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            maxZoom: 17
+            }).addTo(map);
+            L.control.scale().addTo(map);
+            
+            
+      </script>
+<script>
+    
+    
+    
+    var i;
+    var NewLoad = new XMLHttpRequest();
+    Firstload.onload = function() {
+        // This is where you handle what to do with the response.
+        // The actual data is found on this.responseText
+         
+         Respuesta= JSON.parse(this.responseText)
+         var longitudRespuesta = Respuesta.length;
+         var longitudMarcador = Marcadores.length;
+         
+         //alert(Respuesta);
+         //alert(Marcadores.length);
+        if(longitudRespuesta>0){
+            
+            for (i = 0; i < longitudRespuesta; i++) {  
+            //alert("A");
+            Marcadores[0] = new L.marker([Respuesta[i][1], Respuesta[i][2]],{draggable: false}).addTo(map).bindPopup(Respuesta[i][0]).openPopup();
+            }
+        }
+    };
+    
+    //                               ^ Don't block the rest of the execution.
+    //                                 Don't wait until the request finishes to
+    //                                 continue.
+    NewLoad.onload = function() {
+        // This is where you handle what to do with the response.
+        // The actual data is found on this.responseText
+         
+         Respuesta= JSON.parse(this.responseText)
+         var longitudRespuesta = Respuesta.length;
+         var longitudMarcador = Marcadores.length;
+         
+         //alert(Respuesta);
+         //alert(Marcadores.length);
+        if(longitudRespuesta>0){
+            
+            for (i = 0; i < longitudRespuesta; i++) {  
+            
+            if(longitudMarcador<=i){
+               
+                Marcadores[i] = new L.marker([Respuesta[i][1], Respuesta[i][2]],{draggable: false}).addTo(map).bindPopup(Respuesta[i][0]);
+            }else{                
+                Marcadores[i].setLatLng([Respuesta[i][1], Respuesta[i][2]]).bindPopup(Respuesta[i][0]).update();
+            }
+        }
+        }
+    };
+    NewLoad.open("get", "../PHP/Ajax_Test_PHP.php", true);
+    NewLoad.send();     
+    setInterval(function(){ 
+        NewLoad.open("get", "../PHP/Ajax_Test_PHP.php", true);
+        NewLoad.send();   
+    },5000);
+
+
+</script>
+</body>
+</html>
